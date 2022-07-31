@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" type="text/css"/>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <title>Start Page</title>
+</head>
+<body>
+    <div class="text-center align-content-center">
+        <h1>Click button for a list of APIs</h1>
+        <br>
+        <button type="button" th:onclick="|window.location.href='/apiCall'|" class="btn btn-dark">Button</button>
+    </div>
+</body>
+</html>

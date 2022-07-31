@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" type="text/css"/>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <title>Result Page</title>
+</head>
+<body>
+<div class="text-center">
+    <h1>Table of APIs</h1>
+</div>
+<br>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Authentication</th>
+                    <th scope="col">HTTPS</th>
+                    <th scope="col">Cors</th>
+                    <th scope="col">Link</th>
+                    <th scope="col">Category</th>
+                </tr>
+            </thead>
+            <tbody>
+            <!--@thymesVar id="apiList" type="com.example.demo.entity.apiEntries"-->
+                <tr th:each="row: ${apiList}" id="tablerow">
+                    <td th:text="${row.getApi()}"></td>
+                    <td th:text="${row.getDescription()}"></td>
+                    <td th:text="${row.getAuth()}"></td>
+                    <td th:text="${row.isHttps()}"></td>
+                    <td th:text="${row.getCors()}"></td>
+                    <td><a th:href="@{{link}(link=${row.getLink()})}" th:text="${row.getLink()}"></a></td>
+                    <td th:text="${row.getCatagory()}"></td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>
